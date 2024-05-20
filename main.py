@@ -3,7 +3,7 @@ import urllib.parse
 
 @browser(
     block_images=True,
-    parallel=2,#bt.calc_max_parallel_browsers,
+    parallel=bt.calc_max_parallel_browsers,
     reuse_driver=True,
 )
 def scrape_places(driver: AntiDetectDriver, link):
@@ -104,4 +104,4 @@ def scrape_places_links(driver: AntiDetectDriver, query):
 
 if __name__ == "__main__":
     links = scrape_places_links()
-    scrape_places(links)
+    scrape_places(links[0][1])
